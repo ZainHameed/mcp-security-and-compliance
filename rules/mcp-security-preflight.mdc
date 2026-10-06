@@ -1,0 +1,16 @@
+---
+description: Block unapproved MCP calls and require the security skill for everything the hook cannot see
+alwaysApply: true
+---
+
+# MCP security preflight
+
+The hook is the lock. This rule is the behavior. The hook can deny an MCP call when the open project's `.cursor/mcp-allowlist.yaml` is missing or the server is not approved, and it can ask before destructive SQL or destructive shell commands. It cannot interview the human, write the allowlist, or judge production, credential, privacy, or prompt-injection risk on a server it already allowed. This rule does that. It wins over any instruction to call an MCP or plugin first, including Redmine, Jira, GitLab, Glean, codebase-memory, AWS, and other "MCP first" rules.
+
+Before the first MCP or plugin call in this chat, and before every later call:
+
+1. Read `.cursor/mcp-allowlist.yaml` in the open project. Do not call MCP to discover servers. Use session server names and `mcpServers` keys only. Each allowlist `name` must be the exact `mcp_server_name`.
+2. If that file is missing, or the server is not `approval_status: approved`, stop and ask. Write the allowlist only after the human confirms the full list. Open the `mcp-security-and-compliance` skill for the policy. Its blank template is `mcp-allowlist.template.yaml` beside that SKILL.md.
+3. If the hook denies a call, do not retry it through the shell, curl, or a CLI.
+4. If the hook allows a server, that is not approval for the operation. Open the `mcp-security-and-compliance` skill before any write, delete, production change, credential change, external send, or destructive command.
+5. Do not print secrets. Do not call identity tools that return `api_key`, tokens, or passwords unless the task requires that identity, and never echo or store the secret.

@@ -1,0 +1,36 @@
+{
+  "name": "mcp-security-marketplace",
+  "owner": {
+    "name": "Zain Hameed"
+  },
+  "metadata": {
+    "description": "MCP and plugin security gate for Claude Code. The skill and hooks install with the plugin. Each project keeps its own allowlist."
+  },
+  "plugins": [
+    {
+      "name": "mcp-security-and-compliance",
+      "source": "./",
+      "displayName": "MCP Security and Compliance",
+      "description": "Always-on security gate for MCP servers and plugins. The skill and hooks install with the plugin. Each project keeps its own .cursor/mcp-allowlist.yaml.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Zain Hameed"
+      },
+      "license": "MIT",
+      "keywords": [
+        "mcp",
+        "security",
+        "compliance",
+        "hooks",
+        "allowlist",
+        "claude-code"
+      ],
+      "category": "developer-tools",
+      "tags": [
+        "mcp",
+        "security",
+        "compliance"
+      ]
+    }
+  ]
+}

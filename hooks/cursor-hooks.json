@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "beforeMCPExecution": [
+      {
+        "command": "./hooks/mcp-allowlist-gate.py",
+        "failClosed": true
+      }
+    ],
+    "beforeShellExecution": [
+      {
+        "command": "./hooks/mcp-allowlist-gate.py",
+        "failClosed": true
+      }
+    ]
+  }
+}

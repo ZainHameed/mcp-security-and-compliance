@@ -1,0 +1,13 @@
+{
+  "name": "mcp-security-and-compliance",
+  "displayName": "MCP Security and Compliance",
+  "version": "1.0.0",
+  "description": "Always-on security gate for MCP servers and plugins. The skill and hooks install with the plugin. Each project keeps its own .cursor/mcp-allowlist.yaml.",
+  "author": {
+    "name": "Zain Hameed"
+  },
+  "license": "MIT",
+  "keywords": ["mcp", "security", "compliance", "hooks", "allowlist", "claude-code"],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json"
+}
